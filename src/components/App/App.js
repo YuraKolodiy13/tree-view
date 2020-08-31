@@ -11,16 +11,21 @@ const App = () => {
       name: "test-2",
       children: [
         {
-          name: "test-3"
+          name: "test-3",
+        },
+        {
+          name: "test-223",
         }
       ]
     },
     {
       name: "test-4",
+      expanded: true,
       children:
         [
           {
             name: "test-5",
+            expanded: true,
             children: [
               {
                 name: "test-13",
@@ -42,11 +47,20 @@ const App = () => {
     },
   ];
 
+  const icons = {
+    close: 'fas fa-folder',
+    open: 'fas fa-folder-open',
+    fontAwesome: true
+  };
+
   return (
     <div className="App">
-      <Tree data={data}/>
+      <Tree
+        data={data}
+        icons={icons}
+      />
     </div>
   );
-}
+};
 
 export default App;

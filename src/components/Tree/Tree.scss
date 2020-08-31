@@ -9,27 +9,56 @@
       span{
         cursor: pointer;
         margin-bottom: 10px;
+        display: flex;
+        i{
+          margin-right: 5px;
+        }
       }
       ul{
         & + span{
-          padding-left: 15px;
-          position: relative;
-          &::before,
-          &::after{
-            content: '';
-            position: absolute;
-            width: 7px;
-            height: 1px;
-            background: #606975;
-            left: 0;
-            top: 9px;
-            transition: .3s;
+          .open-icon{
+            display: none;
+          }
+          .close-icon{
+            display: block;
           }
         }
-        &[hidden]{
+
+        &.open + span{
+          .open-icon{
+            display: block;
+          }
+          .close-icon{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  &.without-icons{
+    ul{
+      li{
+        ul{
           & + span{
-            &::before{
-              transform: rotate(-90deg);
+            padding-left: 15px;
+            position: relative;
+            &::before,
+            &::after{
+              content: '';
+              position: absolute;
+              width: 7px;
+              height: 1px;
+              background: #606975;
+              left: 0;
+              top: 9px;
+              transition: .3s;
+            }
+          }
+          &[hidden]{
+            & + span{
+              &::before{
+                transform: rotate(-90deg);
+              }
             }
           }
         }

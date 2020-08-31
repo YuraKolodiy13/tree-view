@@ -1,6 +1,19 @@
-import React, {Fragment} from 'react'
+import React, {Fragment} from 'react';
 
-const TreeChild = props => {
+export interface ITreeChildProps {
+  expanded?: boolean;
+  item: {
+    children?: {};
+    expanded?: boolean;
+    name: string;
+  }[];
+  icons?: {
+    close: string;
+    open: string;
+  };
+}
+
+const TreeChild: React.FC<ITreeChildProps> = (props) => {
 
   return(
     <ul hidden={!props.expanded} className={props.expanded ? 'open' : ''}>
